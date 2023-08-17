@@ -1,0 +1,253 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@keyframes blink {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+
+  25%,
+  75% {
+    opacity: 0;
+  }
+}
+
+body {
+  background-color: #043928;
+}
+
+.app {
+  font-family: Arial, Helvetica, sans-serif;
+  display: grid;
+  grid-template-rows: 0.8fr auto auto 0.8fr;
+  gap: 50px;
+  margin-top: 50px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+h1 {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  text-align: center;
+  color: #ceeef8;
+  font-size: 45px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  gap: 10px;
+}
+
+.fridge {
+  position: relative;
+  flex-direction: column;
+  background-color: #efefc6;
+  padding: 20px;
+  border: 2px solid grey;
+  box-shadow: inset -10px 0px 20px 10px rgba(0, 0, 0, 0.468); /* Fluchtpunktperspektive-Schatten von links */
+}
+
+.fridge::before,
+.fridge::after {
+  content: "";
+  position: absolute;
+  top: -6px;
+  bottom: -6px;
+  width: 6px;
+  background-color: grey;
+}
+
+.fridge::before {
+  left: -6px;
+}
+
+.fridge::after {
+  right: -6px;
+}
+
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.product {
+  border: 1px solid lightgrey;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &.expired {
+    background-color: #ffcccc;
+  }
+
+  &.not-expired {
+    background-color: #ccffcc;
+  }
+
+  &.expiring-tomorrow {
+    background-color: #f5f58c;
+  }
+
+  button {
+    padding: 6px 14px;
+    font-family: -apple-system, BlinkMacSystemFont, "Roboto", sans-serif;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+
+    &.expired {
+      background-color: #ff4444;
+      color: white;
+    }
+
+    &.not-expired {
+      background-color: #44cc44;
+      color: white;
+    }
+  }
+}
+
+.product-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 150px;
+  margin-right: 150px;
+  background-color: #efefc6;
+  padding: 15px;
+
+  h3 {
+    margin-top: 10px;
+    text-align: center;
+  }
+}
+
+.add-product {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+
+  input {
+    width: 80%;
+    font-size: 16px;
+    padding: 10px;
+    margin: 10px;
+  }
+
+  .button-10 {
+    color: #ffffff;
+    background-color: #043928;
+    margin: 10px;
+    padding: 15px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.4);
+  }
+}
+
+.display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+
+  .info-box {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 300px;
+    text-align: center;
+
+    &.neutral {
+      background-color: #add8e6;
+      border: 1px solid #8cbfd1;
+    }
+
+    &.good {
+      background-color: #ccffcc;
+      border: 1px solid #b5feb5;
+    }
+
+    &.attention {
+      background-color: #f6f696;
+      border: 1px solid #d6d679;
+    }
+
+    &.warn {
+      background-color: #f8d7da;
+      border: 1px solid #f5c6cb;
+    }
+
+    &.blink {
+      animation: blink 1s infinite;
+    }
+  }
+
+  .warn-box {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #d9534f;
+    background-color: #f2dede;
+    border-radius: 4px;
+    width: 300px;
+    text-align: center;
+    color: #d9534f;
+    b {
+      font-size: large;
+    }
+  }
+}
+
+.control {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+
+  .panel {
+    width: 300px;
+  }
+
+  button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 3px 5px rgba(255, 255, 255, 0.684);
+
+    &.delete-all {
+      background-color: #f39c12;
+      color: black;
+    }
+
+    &.delete-expired {
+      background-color: #e74c3c;
+      color: black;
+    }
+
+    &.sort-products {
+      background-color: #2ecc71;
+      color: black;
+    }
+  }
+}
