@@ -53,7 +53,7 @@ h1 {
   background-color: #efefc6;
   padding: 20px;
   border: 2px solid grey;
-  box-shadow: inset -10px 0px 20px 10px rgba(0, 0, 0, 0.468); /* Fluchtpunktperspektive-Schatten von links */
+  box-shadow: inset -10px 0px 20px 10px rgba(0, 0, 0, 0.468);
 }
 
 .fridge::before,
@@ -125,8 +125,7 @@ h1 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-left: 150px;
-  margin-right: 150px;
+  margin: 20px;
   background-color: #efefc6;
   padding: 15px;
 
@@ -138,15 +137,21 @@ h1 {
 
 .add-product {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   margin-top: 20px;
+  flex-wrap: wrap;
+
+  label {
+    margin-right: 10px;
+  }
 
   input {
-    width: 80%;
     font-size: 16px;
     padding: 10px;
     margin: 10px;
+    flex-grow: 1;
   }
 
   .button-10 {
@@ -157,8 +162,15 @@ h1 {
     font-size: 16px;
     border: none;
     border-radius: 5px;
+    flex-grow: 0;
     cursor: pointer;
     box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.4);
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+    &:hover {
+      background-color: #095c42;
+      color: #ffffff;
+    }
   }
 }
 
@@ -249,5 +261,62 @@ h1 {
       background-color: #2ecc71;
       color: black;
     }
+  }
+}
+
+@media (max-width: 768px) {
+  .app {
+    margin: 20px;
+    gap: 20px;
+  }
+
+  .columns {
+    grid-template-columns: 1fr;
+  }
+
+  .product-form,
+  .display,
+  .control {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .add-product {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .add-product label,
+  .add-product input,
+  .add-product .button-10 {
+    width: calc(100% - 20px); /* Berücksichtigt Margins */
+    margin: 10px 0;
+  }
+
+  .products {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .app {
+    margin: 10px;
+    gap: 10px;
+  }
+
+  .product-form,
+  .display,
+  .control {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .product {
+    width: 100%;
+  }
+
+  .button-10 {
+    width: 100%;
+    font-size: 14px;
   }
 }

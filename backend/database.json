@@ -1,1 +1,34 @@
-{"products":[{"id":"2a6c0674-a160-47cf-ab69-d127c20a4102","name":"Fruchtsaft","expirationDate":"2023-08-12","volume":2.3},{"id":"053f5ef1-b677-4289-b18e-68eb4cd17bfd","name":"Eier","expirationDate":"2023-08-18","volume":0.8},{"id":"5070285c-8eb3-4cc9-a032-5b505425fb98","name":"Streichkäse","expirationDate":"2023-08-10","volume":8.6},{"id":"28ac2ac4-ae39-4f12-ad61-4e98c6fab526","name":"Marmelade","expirationDate":"2023-08-13","volume":1.8},{"id":"7b6184fe-fb3d-4fee-8749-e963bd01f97d","name":"Sahne","expirationDate":"2023-08-15","volume":1.3},{"id":"ada62d91-a0e9-4c8a-8a35-5d8b3d24a0f4","name":"Fruchtsaft","expirationDate":"2023-08-11","volume":3}]}
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Radieschen",
+      "expirationDate": "2024-01-15",
+      "volume": "3"
+    },
+    {
+      "id": 3,
+      "name": "Champagner",
+      "expirationDate": "2024-11-22",
+      "volume": "4"
+    },
+    {
+      "id": 4,
+      "name": "Gurke",
+      "expirationDate": "2024-01-15",
+      "volume": "1"
+    },
+    {
+      "id": 6,
+      "name": "Petersilie",
+      "expirationDate": "2024-01-15",
+      "volume": "1"
+    },
+    {
+      "name": "Tomate",
+      "expirationDate": "2024-01-11",
+      "volume": "12",
+      "id": "76e34aea-c24f-4102-b8fc-5d2ee00d45a7"
+    }
+  ]
+}

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 import { useStorageManagement } from "../utils/context";
 
@@ -9,7 +10,6 @@ export default function AddProductForm() {
 
   // Zustand für das neue Produkt, das hinzugefügt werden soll
   const [newProduct, setNewProduct] = useState({
-    id: "",
     name: "",
     expirationDate: "",
     volume: "",
@@ -20,18 +20,12 @@ export default function AddProductForm() {
     event.preventDefault();
 
     // Überprüfung, ob alle erforderlichen Felder ausgefüllt sind und ob die Kapazität des Kühlschranks ausreicht
-    if (
-      newProduct.name &&
-      newProduct.expirationDate &&
-      newProduct.volume
-      // Alert wurde hier ausgeschaltet und mit der warnbox erstezt
-      // totalProductsVolume + parseFloat(newProduct.volume) >= totalFridgeVolume
-    ) {
+    if (newProduct.name && newProduct.expirationDate && newProduct.volume) {
+      const productWithId = { ...newProduct, id: uuidv4() };
       // Fügt das neue Produkt hinzu, wenn alle Bedingungen erfüllt sind
-      await addProduct(newProduct);
+      await addProduct(productWithId);
       // Setzt den Zustand für das neue Produkt zurück
       setNewProduct({
-        id: "",
         name: "",
         expirationDate: "",
         volume: "",

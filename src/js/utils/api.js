@@ -11,39 +11,57 @@ const API_BASE_URL = "http://localhost:3000";
 
 // Ruft alle Produkte von der API ab
 export async function fetchProducts() {
-  const response = await fetch(`${API_BASE_URL}/products`);
-  const data = await response.json();
-  return data;
+  try {
+    const response = await fetch(`${API_BASE_URL}/products`);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching products:", error);
+    throw error;
+  }
 }
 
 //  Löscht ein einzelnes Produkt anhand seiner ID
 export async function deleteSingleProduct(productId) {
-  await fetch(`${API_BASE_URL}/products/${productId}`, {
-    method: "DELETE",
-  });
+  try {
+    await fetch(`${API_BASE_URL}/products/${productId}`, {
+      method: "DELETE",
+    });
+  } catch (error) {
+    console.error(`Error deleting product with ID ${productId}:`, error);
+    throw error;
+  }
 }
 
 //  Löscht mehrere Produkte basierend auf einer Liste von IDs
 export async function deleteProducts(productIds) {
-  // Erstellt eine Liste von Versprechensobjekten für jedes zu löschende Produkt
-  const promises = productIds.map((productId) =>
-    fetch(`${API_BASE_URL}/products/${productId}`, {
-      method: "DELETE",
-    })
-  );
-  // Führt alle Versprechen parallel aus und wartet auf Abschluss
-  await Promise.all(promises);
+  try {
+    const promises = productIds.map((productId) =>
+      fetch(`${API_BASE_URL}/products/${productId}`, {
+        method: "DELETE",
+      })
+    );
+    await Promise.all(promises);
+  } catch (error) {
+    console.error("Error deleting multiple products:", error);
+    throw error;
+  }
 }
 
 // Fügt ein neues Produkt zur API hinzu
 export async function addProduct(product) {
-  const response = await fetch(`${API_BASE_URL}/products`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(product),
-  });
-  const data = await response.json();
-  return data;
+  try {
+    const response = await fetch(`${API_BASE_URL}/products`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(product),
+    });
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error adding product:", error);
+    throw error;
+  }
 }

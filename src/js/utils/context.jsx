@@ -41,6 +41,15 @@ export function AppProvider({ children }) {
     fetchAndUpdate(setProducts);
   }, []);
 
+  // Effekt, um totalProductsVolume bei Änderungen der products zu aktualisieren
+  useEffect(() => {
+    const updatedTotalProductsVolume = products
+      .reduce((total, product) => total + parseFloat(product.volume), 0)
+      .toFixed(2);
+    // Setzen des aktualisierten totalProductsVolume
+    // ...
+  }, [products]);
+
   // Wert für den Kontext, der Funktionen und Daten für Kindkomponenten bereitstellt
   const contextValue = {
     products, // Die aktuelle Liste der Produkte
@@ -48,15 +57,15 @@ export function AppProvider({ children }) {
     totalProductsVolume, // Das berechnete Gesamtvolumen der Produkte
     deleteSingleProduct: async (productId) => {
       // Funktion zum Löschen eines einzelnen Produkts und Aktualisieren der Produkte
-      await deleteSingleAndUpdate(products, setProducts, productId);
+      await deleteSingleAndUpdate(setProducts, productId);
     },
     deleteProducts: async (productIds) => {
       // Funktion zum Löschen mehrerer Produkte und Aktualisieren der Produkte
-      await deleteMultipleAndUpdate(products, setProducts, productIds);
+      await deleteMultipleAndUpdate(setProducts, productIds);
     },
     addProduct: async (product) => {
       // Funktion zum Hinzufügen eines Produkts und Aktualisieren der Produkte
-      await addNewAndUpdate(products, setProducts, product);
+      await addNewAndUpdate(setProducts, product);
     },
     sortProductsByExpiry: () => {
       // Funktion zum Sortieren der Produkte nach Ablaufdatum
