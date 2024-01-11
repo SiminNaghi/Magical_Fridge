@@ -12,7 +12,7 @@ oder auch für ganz andere Verwaltungsvorgänge verwenden.
 
 ### Produktverwaltung
 
-1. **Anzeige von Produkten:** Eingelagerte Produkte werden in einer übersichtlichen und kompakten Weise angezeigt.Die Haltbarkeit wird im Ampel-System dargestellt. Grün für Produkte, die noch länger haltbar sind. Gelb für Produkte, die heute verzehrt werden müssten und Rot für Produkte, die bereits abgelaufen sind.
+1. **Anzeige von Produkten:** Eingelagerte Produkte werden in einer übersichtlichen und kompakten Weise angezeigt. Die Haltbarkeit wird im Ampel-System dargestellt. Grün für Produkte, die noch länger haltbar sind. Gelb für Produkte, die heute verzehrt werden müssten und rot für Produkte, die bereits abgelaufen sind.
 2. **Hinzufügen von Produkten:** Neue Produkte können über ein Formular hinzugefügt werden.
 3. **Entfernen von Produkten:** Einzelne Produkte können per Knopfdruck entfernt werden.
 4. **Entfernen abgelaufener Produkte:** Alle abgelaufenen Produkte können per Knopfdruck entfernt werden.
@@ -23,7 +23,7 @@ oder auch für ganz andere Verwaltungsvorgänge verwenden.
 
 1. **Gesamtkapazität:** Anzeige des Gesamtvolumens des Kühlschranks.
 2. **Anzahl eingelagerter Produkte:** Anzeige der Anzahl der Produkte im Kühlschrank.
-3. **Freie Kapazität:** Anzeige des noch verfügbaren Volumens im Kühlschrank.Auch hier wird die Anzeige durch Ampelfraben unterstützt, damit der User weiß, wann der Platz im Kühlschrank knapp wird. Sollte der Inhalt das volumen des Kühlschranks überschreiten, wird der User gewarnt.
+3. **Freie Kapazität:** Anzeige des noch verfügbaren Volumens im Kühlschrank. Auch hier wird die Anzeige durch Ampelfarben unterstützt, damit der User weiß, wann der Platz im Kühlschrank knapp wird. Sollte der Inhalt das Volumen des Kühlschranks überschreiten, wird der User gewarnt.
 4. **Produkte, die bald verfallen:** Anzahl der Produkte, die innerhalb eines Tages verfallen.
 5. **Abgelaufene Produkte:** Anzahl der bereits abgelaufenen Produkte.
 6. **Kleinstes Produkt:** Volumen des kleinsten Produkts im Kühlschrank.
@@ -33,10 +33,9 @@ oder auch für ganz andere Verwaltungsvorgänge verwenden.
 
 1. Klonen Sie das Repository.
 2. Führen Sie `npm install` aus, um die benötigten Pakete zu installieren.
-3. Mit `npm run start-backend-with-seeding` wird der Server gestartet, der eine REST API zur Verfügung stellt.
-   Die Adresse und Endpoints werden in der Konsole angezeigt. Der Server bleibt aktiv, solange der Prozess läuft.
-4. Öffnen Sie in einem neune Terminal die Anwendung im Frontend mit `npm run dev`, um mit der Verwaltung des Kühlschranks zu beginnen.
+3. Mit `npm run start-backend-with-seeding` wird der Server gestartet.
+4. Öffnen Sie in einem neuen Terminal die Anwendung im Frontend mit `npm run dev`, um mit der Verwaltung des Kühlschranks zu beginnen.
 
 ---
 
-Viel Spaß mit dem Kühlschrank-Management-System!
+Viel Spaß mit dem Magical Fridge!
